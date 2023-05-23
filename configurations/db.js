@@ -9,6 +9,7 @@ const userclient = new MongoClient(process.env.MONGODB_URI_USER, {
 async function connectToDatabase() {
   try {
     await userclient.connect();
+
     logger.info("Connected to MongoDB Atlas");
 
   } catch (err) {
@@ -19,5 +20,5 @@ async function connectToDatabase() {
 
 module.exports = {
   connectToDatabase,
-  userclient
+  userclient,
 };

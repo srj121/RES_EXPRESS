@@ -4,8 +4,6 @@ const { userclient } = require("../configurations/db");
 const User = require('../model/User');
 const userCollection = userclient.db("expressJs").collection("first");
 
-
-
 //____________________________________GET ALL_______________________________________
 
 const allUsers = asyncHandler(async (req, res) => {

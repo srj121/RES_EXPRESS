@@ -4,7 +4,7 @@ const crypto = require("crypto");
 const cors = require("cors");
 app.use(cors());
 require("dotenv").config();
-const { userclient, connectToDatabase } = require("./db");
+const { userclient, connectToDatabase } = require("./configurations/db");
 const userCollection = userclient.db("expressJs").collection("first");
 const authCollection = userclient.db("security").collection("auth");
 
