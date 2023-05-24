@@ -1,7 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const axios = require("axios");
 const logger = require("../logger/logger");
-const email = require("../model/Email");
 
 const APIKEY =
   "FE46416FD25719F2FD282706DF5088D73B68C805E78007E9BDB0EF9D4083563DE8A4775FA076592203B91A5C019528DE";
@@ -19,16 +18,15 @@ const sendEmail = asyncHandler(async (req, res) => {
       randomNumber +
       "\n\n Copy it and get access";
 
-    const email = new Email();
-    email.emailTo(req.email); // Using the setter method
-    console.log(email.emailTo); // Using the getter method
+    var email = req.email; // Using the setter method
+    console.log(email); // Using the getter method
 
     let data = "apikey=" + encodeURIComponent(APIKEY);
     data += "&from=" + encodeURIComponent("surajbade39.sb@gmail.com");
     data += "&fromName=" + encodeURIComponent("suraj Bade");
     data += "&subject=" + encodeURIComponent(SUBJECT);
     data += "&bodyText=" + encodeURIComponent(BODY_TEXT);
-    data += "&to=" + encodeURIComponent(email.getEmailTo());
+    data += "&to=" + encodeURIComponent(email);
     data += "&isTransactional=" + encodeURIComponent("false");
 
     console.log(data);

@@ -67,8 +67,6 @@ const allUsers = asyncHandler(async (req, res) => {
   //____________________________________DELETE BY ID_______________________________________
   
   const deleteById = asyncHandler(async (req, res) => {
-    const number1 = req.body._id;
-    console.log(number1);
   
     try {
       const { ObjectId } = require("mongodb");
