@@ -4,13 +4,15 @@ const crypto = require("crypto");
 const cors = require("cors");
 app.use(cors());
 require("dotenv").config();
-const { userclient, connectToDatabaseUser } = require("./db");
-const firstCollection = userclient.db("expressJs").collection("first");
-connectToDatabaseUser();
+const { userclient, connectToDatabase } = require("./configurations/db");
+const userCollection = userclient.db("expressJs").collection("first");
+const authCollection = userclient.db("security").collection("auth");
 
-const { connectToDatabaseAuth, authclient } = require("./db");
-const authCollection = authclient.db("security").collection("auth");
-connectToDatabaseAuth();
+connectToDatabase();
+
+// const { connectToDatabase, authclient } = require("./db");
+// const authCollection = authclient.db("security").collection("auth");
+// connectToDatabase();
 
 //_____________________________________LOGGER_______________________________________------
 
@@ -39,13 +41,8 @@ app.get('/reconnect',async (req, res) => {
 
     await userclient.close() // Close the existing connection
     console.log('connection closed')
-    await connectToDatabaseUser() // Connect to the database again
-    console.log('connected to User')
-    
-    await authclient.close() // Close the existing connection
-    console.log('connection closed')
-    await connectToDatabaseAuth() // Connect to the database again
-    console.log('connected to Auth')
+    await connectToDatabase() // Connect to the database again
+    console.log('connected to DB')
     
     res.status(200).json({message: 'Successfully reconnected to the database'});
   } catch (err) {
@@ -57,7 +54,7 @@ app.get('/reconnect',async (req, res) => {
 
 app.get("/", async (req, res) => {
   try {
-    const users = await firstCollection.find().toArray();
+    const users = await userCollection.find().toArray();
 
     res.json(users);
   } catch (err) {
@@ -75,7 +72,7 @@ app.get("/byname", async (req, res) => {
 
     logger.info("userName = " + userName);
 
-    const findByname = await firstCollection.find({ name: userName }).toArray();
+    const findByname = await userCollection.find({ name: userName }).toArray();
 
     if (findByname.length === 0) {
       logger.info(`Document with name { ${userName} } not found`);
@@ -99,7 +96,7 @@ app.post("/byage", async (req, res) => {
 
     logger.info("userAge = " + userAge);
 
-    const findByage = await firstCollection.find({ age: userAge }).toArray();
+    const findByage = await userCollection.find({ age: userAge }).toArray();
     if (findByage.length === 0) {
       res.status(404).send(`Document with age { ${userAge} } not found`);
       logger.info(`Document with age { ${userAge} } not found`);
@@ -126,7 +123,7 @@ app.post("/deleteuserbyid", async (req, res) => {
     const objectId = new ObjectId(String(number));
     logger.info(objectId);
 
-    const result = await firstCollection.deleteOne({ _id: objectId });
+    const result = await userCollection.deleteOne({ _id: objectId });
 
     if (result.deletedCount === 1) {
       res.json(result);
@@ -150,7 +147,7 @@ app.post("/deleteuserbyname", async (req, res) => {
   try {
     const name = req.body.name;
     logger.info(name);
-    const result = await firstCollection.deleteMany({ name: name });
+    const result = await userCollection.deleteMany({ name: name });
 
     if (result.deletedCount > 0) {
       logger.info("Document deleted successfully");
@@ -180,7 +177,7 @@ app.post("/addUser", async (req, res) => {
     if (age <= 0) {
       res.status(400).send("Age should not be less than 0");
     } else {
-      const savedUser = await firstCollection.insertOne(newUser);
+      const savedUser = await userCollection.insertOne(newUser);
       logger.info(savedUser);
       res.json(savedUser);
     }
