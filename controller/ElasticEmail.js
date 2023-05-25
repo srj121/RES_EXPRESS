@@ -18,8 +18,8 @@ const sendEmail = asyncHandler(async (req, res) => {
       randomNumber +
       "\n\n Copy it and get access";
 
-    var email = req.email; // Using the setter method
-    console.log(email); // Using the getter method
+      const { email } = req.body; // Using the setter method
+    console.log('email = ' + email); // Using the getter method
 
     let data = "apikey=" + encodeURIComponent(APIKEY);
     data += "&from=" + encodeURIComponent("surajbade39.sb@gmail.com");
@@ -32,17 +32,14 @@ const sendEmail = asyncHandler(async (req, res) => {
     console.log(data);
 
     axios
-      .post("https://api.elasticemail.com/v2/email/send", data, {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      })
+      .post("https://api.elasticemail.com/v2/email/send", data)
       .then((response) => {
         console.log(response.data);
       })
       .catch((error) => {
         console.error(error);
       });
+      // res.json().sendStatus(200);
   } catch (error) {
     console.error(error);
     return "Unable to send email";

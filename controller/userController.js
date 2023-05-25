@@ -116,14 +116,16 @@ const allUsers = asyncHandler(async (req, res) => {
   //____________________________________POST ADDUSER_______________________________________
   
   const addUser = asyncHandler(async (req, res) => {
-    const { name, age } = req.body;
+    const { name, age, status } = req.body;
   
     const newUser = new User({
       name,
       age,
+      status
     });
     console.log(name);
     console.log(age);
+    console.log(status);
   
     try {
       if (age <= 0) {
