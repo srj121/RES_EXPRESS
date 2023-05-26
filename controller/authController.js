@@ -9,22 +9,29 @@ const addAuthUser = asyncHandler(async (req, res) => {
   try {
     const { email, name, password } = req.body;
 
+    console.log(email, name, password)
+
     const algorithm = "aes-256-cbc";
-    const key = crypto.scryptSync(password, "salt", 32);
+    const key = crypto.scryptSync(password.password, "salt", 32);
     const iv = crypto.randomBytes(16);
 
+    console.log('it ok here')
+
     const cipher = crypto.createCipheriv(algorithm, key, iv);
-    let encrypted = cipher.update(password, "utf8", "hex");
+    let encrypted = cipher.update(password.password, "utf8", "hex");
     encrypted += cipher.final("hex");
 
     const newAuthUser = new authUser({
-      email,
-      name,
+      email: email.email,
+      name: name.name,
       password: encrypted,
       iv: iv.toString("hex"),
     });
 
-    const savedUser = await authclient.insertOne(newAuthUser);
+
+    console.log("crossed 35", newAuthUser)
+    const savedUser = await authCollection.insertOne(newAuthUser);
+    console.log(savedUser)
     logger.info(savedUser);
     res.status(200).json({ message: "Auth User Added!" });
   } catch (err) {

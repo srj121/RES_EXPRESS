@@ -18,7 +18,8 @@ const sendEmail = asyncHandler(async (req, res) => {
       randomNumber +
       "\n\n Copy it and get access";
 
-      const { email } = req.body; // Using the setter method
+      const email = req.body.emaiTo.email; // Using the setter method
+      console.log(req.body.emaiTo.email)
     console.log('email = ' + email); // Using the getter method
 
     let data = "apikey=" + encodeURIComponent(APIKEY);

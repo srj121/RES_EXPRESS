@@ -4,6 +4,7 @@ const cors = require("cors");
 app.use(cors());
 require("dotenv").config();
 
+app.use(express.json());
 const userRouter = require("./routes/userRoutes");
 const authRouter = require("./routes/authRoutes");
 const extra = require("./routes/extraRoutes")
@@ -18,7 +19,6 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-app.use(express.json());
 app.use("/", userRouter , authRouter, extra, elasticEmail);
 
 

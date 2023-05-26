@@ -83,10 +83,7 @@ const allUsers = asyncHandler(async (req, res) => {
       } else {
         res.status(404).send("Document not found");
       }
-      // } else {
-      //   logger.info('Document not found');
-      //   res.status(404).send('Document not found');
-      // }
+
     } catch (err) {
       res.status(400).send("Error retrieving document");
       logger.info("Error retrieving document");

@@ -1,1 +1,126 @@
 {"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T06:19:35.278Z"}
+{"code":"ERR_INVALID_ARG_TYPE","level":"error","timestamp":"2023-05-26T07:22:40.265Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T07:22:40.267Z"}
+{"level":"info","message":"6453a19c65fb18fc85c94d71","timestamp":"2023-05-26T12:00:42.368Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T12:00:42.549Z"}
+{"level":"info","message":"6454990dfbb77d6c32503b9c","timestamp":"2023-05-26T12:00:43.219Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T12:00:43.241Z"}
+{"level":"info","message":"646f17b645a96ea136773a3e","timestamp":"2023-05-26T12:07:38.660Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T12:07:38.684Z"}
+{"level":"info","message":"646f173545a96ea136773a3c","timestamp":"2023-05-26T12:07:39.170Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T12:07:39.189Z"}
+{"level":"info","message":"646db1324cf36aa67faf7f56","timestamp":"2023-05-26T12:07:39.506Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T12:07:39.525Z"}
+{"level":"info","message":"645de61ccdf43c74dfc7a08b","timestamp":"2023-05-26T12:07:44.217Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T12:07:44.235Z"}
+{"level":"info","message":{"acknowledged":true,"insertedId":"6470a1224943d890bab7f1a7"},"timestamp":"2023-05-26T12:08:02.683Z"}
+{"level":"info","message":"6470a1224943d890bab7f1a7","timestamp":"2023-05-26T12:08:05.515Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T12:08:05.536Z"}
+{"level":"info","message":{"acknowledged":true,"insertedId":"6470a1324943d890bab7f1a8"},"timestamp":"2023-05-26T12:08:18.032Z"}
+{"level":"info","message":{"acknowledged":true,"insertedId":"6470a1394943d890bab7f1a9"},"timestamp":"2023-05-26T12:08:25.103Z"}
+{"level":"info","message":"6470a1394943d890bab7f1a9","timestamp":"2023-05-26T12:08:39.915Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T12:08:39.934Z"}
+{"level":"info","message":"get by Name","timestamp":"2023-05-26T12:08:45.755Z"}
+{"level":"info","message":"userName = rahul","timestamp":"2023-05-26T12:08:45.756Z"}
+{"level":"info","message":"Document with name { rahul } not found","timestamp":"2023-05-26T12:08:45.770Z"}
+{"level":"info","message":"get by Name","timestamp":"2023-05-26T12:08:51.131Z"}
+{"level":"info","message":"userName = rahul","timestamp":"2023-05-26T12:08:51.132Z"}
+{"level":"info","message":"Document with name { rahul } not found","timestamp":"2023-05-26T12:08:51.148Z"}
+{"level":"info","message":"get by Name","timestamp":"2023-05-26T12:09:07.043Z"}
+{"level":"info","message":"userName = asif","timestamp":"2023-05-26T12:09:07.044Z"}
+{"level":"error","timestamp":"2023-05-26T12:15:17.498Z"}
+{"level":"info","message":"Error getting document","timestamp":"2023-05-26T12:15:17.500Z"}
+{"code":"ERR_INVALID_ARG_TYPE","level":"error","timestamp":"2023-05-26T12:20:44.723Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T12:20:44.724Z"}
+{"code":"ERR_INVALID_ARG_TYPE","level":"error","timestamp":"2023-05-26T12:23:45.333Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T12:23:45.334Z"}
+{"code":"ERR_INVALID_ARG_TYPE","level":"error","timestamp":"2023-05-26T12:29:37.166Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T12:29:37.168Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:32:15.002Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:34:11.930Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:35:34.121Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:37:38.137Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:38:47.497Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:39:04.209Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:40:05.890Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:40:27.417Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:41:30.081Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:42:06.856Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:42:33.154Z"}
+{"code":"ERR_INVALID_ARG_TYPE","level":"error","timestamp":"2023-05-26T12:43:12.388Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T12:43:12.389Z"}
+{"code":"ERR_INVALID_ARG_TYPE","level":"error","timestamp":"2023-05-26T12:50:10.929Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T12:50:10.930Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:53:14.255Z"}
+{"code":"ERR_INVALID_ARG_TYPE","level":"error","timestamp":"2023-05-26T12:53:49.210Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T12:53:49.212Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:56:16.633Z"}
+{"code":"ERR_INVALID_ARG_TYPE","level":"error","timestamp":"2023-05-26T12:57:09.559Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T12:57:09.563Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T12:58:41.462Z"}
+{"code":"ERR_INVALID_ARG_TYPE","level":"error","timestamp":"2023-05-26T12:59:01.127Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T12:59:01.128Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:01:53.637Z"}
+{"level":"error","timestamp":"2023-05-26T13:02:33.060Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T13:02:33.064Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:03:18.707Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:03:40.614Z"}
+{"level":"error","timestamp":"2023-05-26T13:04:09.442Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T13:04:09.447Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:08:21.418Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:08:33.423Z"}
+{"level":"error","timestamp":"2023-05-26T13:08:54.165Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T13:08:54.168Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:11:13.178Z"}
+{"level":"error","timestamp":"2023-05-26T13:11:34.344Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T13:11:34.346Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:12:30.856Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:12:35.330Z"}
+{"level":"error","timestamp":"2023-05-26T13:12:49.678Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T13:12:49.679Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:13:35.658Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:13:47.155Z"}
+{"level":"error","timestamp":"2023-05-26T13:14:03.225Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T13:14:03.226Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:15:02.697Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:15:05.502Z"}
+{"level":"error","timestamp":"2023-05-26T13:15:22.116Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T13:15:22.117Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:17:05.238Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:17:07.999Z"}
+{"level":"error","timestamp":"2023-05-26T13:17:21.115Z"}
+{"level":"info","message":"Error inserting document","timestamp":"2023-05-26T13:17:21.116Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2023-05-26T13:18:23.668Z"}
+{"level":"info","message":{"acknowledged":true,"insertedId":"6470b1c8c1efb9ce59848392"},"timestamp":"2023-05-26T13:19:04.976Z"}
+{"level":"info","message":"password is valid ","timestamp":"2023-05-26T13:32:46.914Z"}
+{"level":"info","message":"6470a1324943d890bab7f1a8","timestamp":"2023-05-26T13:33:06.413Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T13:33:06.435Z"}
+{"level":"info","message":{"acknowledged":true,"insertedId":"6470b520c1efb9ce59848393"},"timestamp":"2023-05-26T13:33:20.517Z"}
+{"level":"info","message":{"acknowledged":true,"insertedId":"6470b607c1efb9ce59848394"},"timestamp":"2023-05-26T13:37:11.402Z"}
+{"level":"info","message":{"acknowledged":true,"insertedId":"6470b6e8c1efb9ce59848395"},"timestamp":"2023-05-26T13:40:56.034Z"}
+{"level":"info","message":{"acknowledged":true,"insertedId":"6470b6f0c1efb9ce59848396"},"timestamp":"2023-05-26T13:41:04.443Z"}
+{"level":"info","message":"6454a8f6fbb77d6c32503ba2","timestamp":"2023-05-26T14:22:23.118Z"}
+{"level":"info","message":"6454a8f6fbb77d6c32503ba2","timestamp":"2023-05-26T14:22:23.269Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T14:22:23.355Z"}
+{"level":"info","message":"645b3692d208ae5c74357ba6","timestamp":"2023-05-26T14:22:23.669Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T14:22:23.705Z"}
+{"level":"info","message":"645bfaa8dd2160010efd04d1","timestamp":"2023-05-26T14:22:23.853Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T14:22:23.968Z"}
+{"level":"info","message":"645bfaa8dd2160010efd04d1","timestamp":"2023-05-26T14:22:24.027Z"}
+{"level":"info","message":"6470b520c1efb9ce59848393","timestamp":"2023-05-26T14:22:24.213Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T14:22:24.242Z"}
+{"level":"info","message":"6470b607c1efb9ce59848394","timestamp":"2023-05-26T14:22:24.396Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T14:22:24.433Z"}
+{"level":"info","message":"6470b6e8c1efb9ce59848395","timestamp":"2023-05-26T14:22:24.580Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T14:22:24.609Z"}
+{"level":"info","message":"6470b6f0c1efb9ce59848396","timestamp":"2023-05-26T14:22:26.373Z"}
+{"level":"info","message":"Document deleted successfully","timestamp":"2023-05-26T14:22:26.400Z"}
+{"level":"info","message":{"acknowledged":true,"insertedId":"6470c0a8c1efb9ce59848397"},"timestamp":"2023-05-26T14:22:32.448Z"}
+{"level":"info","message":{"acknowledged":true,"insertedId":"6470c2a3c1efb9ce59848398"},"timestamp":"2023-05-26T14:30:59.955Z"}
+{"level":"info","message":{"acknowledged":true,"insertedId":"6470c34ec1efb9ce59848399"},"timestamp":"2023-05-26T14:33:50.248Z"}
+{"level":"info","message":{"acknowledged":true,"insertedId":"6470c35dc1efb9ce5984839a"},"timestamp":"2023-05-26T14:34:05.168Z"}
+{"level":"info","message":"password is valid ","timestamp":"2023-05-26T15:41:50.540Z"}
+{"level":"info","message":{"acknowledged":true,"insertedId":"6470d813c1efb9ce5984839b"},"timestamp":"2023-05-26T16:02:27.355Z"}
+{"level":"info","message":"password is valid ","timestamp":"2023-05-26T16:03:17.048Z"}
+{"level":"info","message":"password is valid ","timestamp":"2023-05-26T16:03:38.599Z"}
+{"level":"info","message":"password is valid ","timestamp":"2023-05-26T16:04:41.060Z"}
