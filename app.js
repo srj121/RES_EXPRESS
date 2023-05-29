@@ -6,15 +6,18 @@ app.use(cors());
 
 const upload = multer({dest: 'uploads/'});
 
+ let fileName = ''; 
 app.post('/api/save-pdf', upload.single('pdf'), (req, res) => {
-    
+    fileName = req.body.name;
     res.sendStatus(200);
 });
 
 app.get('/api/download-pdf', (req, res) => {
-    const filepath = 'uploads/'+req.fileame;
+
+    const filepath = 'uploads/convert.pdf';
+   
   
-    res.download(filepath, 'convert.pdf', (error) => {
+    res.download(filepath, `${fileName}.pdf`, (error) => {
         if(error) {
             console.error('Failed to initiate the file download:', error);
             res.sendStatus(500);
