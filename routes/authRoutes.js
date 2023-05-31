@@ -4,5 +4,6 @@ const { addAuthUser, findAuthUser } = require('../controller/authController')
 
 router.route('/authsignup').post(addAuthUser)
 router.route('/loginuser').post(findAuthUser)
+router.route('/loginuser').post(findAuthUser)
 
 module.exports = router

@@ -75,7 +75,32 @@ const findAuthUser = asyncHandler(async (req, res) => {
   }
 });
 
+//____________________________________GET EMAIL_______________________________________
+
+const allEmails = asyncHandler(async (req, res) => {
+  const { email } = req.body;
+
+  try {
+
+    const user = await authCollection.findOne({ email: email });
+    if (user.email === email) {
+      res.status(200).json({ message: "user email is matched" });
+    }
+    else {
+    res.status(400).send({ message: "user email is not matched" });
+    logger.info("Email is Available");
+    }
+  } catch (err) {
+    logger.error(err);
+    res.status(500).send({ message: "Error getting document" });
+    logger.info("Error getting document");
+  }
+});
+
+
+
 module.exports = {
   addAuthUser,
   findAuthUser,
+  allEmails
 };
