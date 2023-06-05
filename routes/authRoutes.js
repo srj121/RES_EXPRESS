@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const { addAuthUser, findAuthUser } = require('../controller/authController')
+const { addAuthUser, findAuthUser, allEmails, allUserName, allSubscribers } = require('../controller/authController')
 
 router.route('/authsignup').post(addAuthUser)
 router.route('/loginuser').post(findAuthUser)
-router.route('/loginuser').post(findAuthUser)
+router.route('/allEmails').post(allEmails)
+router.route('/allUserName').post(allUserName)
+router.route('/allSubscribers').get(allSubscribers)
 
 module.exports = router

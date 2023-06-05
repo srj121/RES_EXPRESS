@@ -81,14 +81,35 @@ const allEmails = asyncHandler(async (req, res) => {
   const { email } = req.body;
 
   try {
-
     const user = await authCollection.findOne({ email: email });
-    if (user.email === email) {
-      res.status(200).json({ message: "user email is matched" });
-    }
-    else {
-    res.status(400).send({ message: "user email is not matched" });
+    
+    if(user == null) {
+      res.status(200).json({ message: "user email is not found" });
     logger.info("Email is Available");
+    }
+    else if (user.email === email) {
+      res.status(401).json({ message: "Email is used take another" });
+      }
+  } catch (err) {
+    logger.error(err);
+    res.status(500).send({ message: "Error getting document" });
+    logger.info("Error getting document");
+  }
+});
+//____________________________________GET USERNAME_______________________________________
+
+const allUserName = asyncHandler(async (req, res) => {
+  const { name } = req.body;
+  
+  try {
+    const user = await authCollection.findOne({ name: name });
+    
+    if(user == null) {
+      res.status(200).json({ message: "user name is not found" });
+      logger.info("UserName is Available");
+    }
+    else if (user.name === name) {
+      res.status(401).json({ message: "User name is used take another"});
     }
   } catch (err) {
     logger.error(err);
@@ -96,11 +117,27 @@ const allEmails = asyncHandler(async (req, res) => {
     logger.info("Error getting document");
   }
 });
+//____________________________________GET ALL SUBSCRIBER_______________________________________
 
+const allSubscribers = asyncHandler(async (req, res) => {
+  try{ 
+  const count = await authCollection.countDocuments();
+  console.log("count of all subsCribers = " + count);
+  res.json(count);
+
+  }catch(err){
+    console.log(err);
+    res.status(500).json({message: "Error retreving count"});
+
+  }
+
+})
 
 
 module.exports = {
   addAuthUser,
   findAuthUser,
-  allEmails
+  allEmails,
+  allUserName,
+  allSubscribers
 };
