@@ -44,14 +44,15 @@ const addAuthUser = asyncHandler(async (req, res) => {
 //____________________________________AUTH LOGINUSER_______________________________________
 
 const findAuthUser = asyncHandler(async (req, res) => {
-  const { email, name, password } = req.body;
+  const { name, password } = req.body;
 
   try {
 
-    const user = await authCollection.findOne({ email: email });
-    if (user.name !== name) {
-      res.status(400).json({ message: "username is not matched" });
+    const user = await authCollection.findOne({ name: name });
+    if (user === null) {
+      res.status(400).json({ message: "user not found" });
     }
+    else{
 
     let dbPassword = user.password;
 
@@ -62,12 +63,15 @@ const findAuthUser = asyncHandler(async (req, res) => {
     let decrypted = decipher.update(dbPassword, "hex", "utf8");
     decrypted += decipher.final("utf8");
     console.log("Decrypted password:", decrypted);
+   
     if (decrypted !== password) {
       res.status(400).send({ message: "Invalid password " });
       logger.info("password is not valid ");
     }
-    res.status(200).send({ message: "user password is matched " });
+    // res.status(200).send({ message: "user password is matched " });
+    res.status(200).send(user);
     logger.info("password is valid ");
+  }
   } catch (err) {
     logger.error(err);
     res.status(500).send({ message: "Error getting document" });
