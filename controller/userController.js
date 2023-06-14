@@ -2,7 +2,7 @@ const asyncHandler = require('express-async-handler')
 const logger = require('../logger/logger');
 const { userclient } = require("../configurations/db");
 const User = require('../model/User');
-const userCollection = userclient.db("expressJs").collection("first");
+const userCollection = userclient.db("RES").collection("CrudUsers");
 
 //____________________________________GET ALL_______________________________________
 

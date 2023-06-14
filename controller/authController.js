@@ -3,7 +3,7 @@ const logger = require("../logger/logger");
 const { userclient } = require("../configurations/db");
 const crypto = require("crypto");
 const authUser = require("../model/AuthUser");
-const authCollection = userclient.db("security").collection("auth");
+const authCollection = userclient.db("RES").collection("auth");
 //____________________________________POST AUTH ADDUSER_______________________________________
 const addAuthUser = asyncHandler(async (req, res) => {
   try {
