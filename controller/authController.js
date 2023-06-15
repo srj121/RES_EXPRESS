@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const logger = require("../logger/logger");
 const { userclient } = require("../configurations/db");
+const bcrypt= require("bcrypt")
 const crypto = require("crypto");
 const authUser = require("../model/AuthUser");
 const authCollection = userclient.db("RES").collection("auth");
@@ -11,21 +12,27 @@ const addAuthUser = asyncHandler(async (req, res) => {
 
     console.log(email, name, password)
 
-    const algorithm = "aes-256-cbc";
-    const key = crypto.scryptSync(password.password, "salt", 32);
-    const iv = crypto.randomBytes(16);
+    // const algorithm = "aes-256-cbc";
+    // const key = crypto.scryptSync(password.password, "salt", 32);
+    // const iv = crypto.randomBytes(16);
 
-    console.log('it ok here')
+    // console.log('it ok here')
 
-    const cipher = crypto.createCipheriv(algorithm, key, iv);
-    let encrypted = cipher.update(password.password, "utf8", "hex");
-    encrypted += cipher.final("hex");
+    // const cipher = crypto.createCipheriv(algorithm, key, iv);
+    // let encrypted = cipher.update(password.password, "utf8", "hex");
+    // encrypted += cipher.final("hex");
+    console.log("here")
+    console.log(password.password)
+    
+    let encrypted = await bcrypt.hash(password.password, 10)
+    console.log(encrypted)
+    
 
     const newAuthUser = new authUser({
       email: email.email,
       name: name.name,
-      password: encrypted,
-      iv: iv.toString("hex"),
+      password: encrypted
+      // iv: iv.toString("hex"),
     });
 
 
@@ -44,7 +51,10 @@ const addAuthUser = asyncHandler(async (req, res) => {
 //____________________________________AUTH LOGINUSER_______________________________________
 
 const findAuthUser = asyncHandler(async (req, res) => {
-  const { name, password } = req.body;
+  // const { name, password } = req.body;
+  const user = req.body;
+  const name = user.userName;
+  const password = user.password;
 
   try {
 
@@ -55,21 +65,30 @@ const findAuthUser = asyncHandler(async (req, res) => {
     else{
 
     let dbPassword = user.password;
+      console.log("1")
+    // const algorithm = "aes-256-cbc";
+    // const key = crypto.scryptSync(password, "salt", 32);
+    // const iv = Buffer.from(user.iv, "hex");
+    // const decipher = crypto.createDecipheriv(algorithm, key, iv);
+    // let decrypted = decipher.update(dbPassword, "hex", "utf8");
+    // decrypted += decipher.final("utf8");
+    // console.log("Decrypted password:", decrypted);
 
-    const algorithm = "aes-256-cbc";
-    const key = crypto.scryptSync(password, "salt", 32);
-    const iv = Buffer.from(user.iv, "hex");
-    const decipher = crypto.createDecipheriv(algorithm, key, iv);
-    let decrypted = decipher.update(dbPassword, "hex", "utf8");
-    decrypted += decipher.final("utf8");
-    console.log("Decrypted password:", decrypted);
-   
-    if (decrypted !== password) {
+    // bcrypt.compare(password, dbPassword)
+    console.log("2")
+
+    if (!await bcrypt.compare(password, dbPassword)) {
       res.status(400).send({ message: "Invalid password " });
       logger.info("password is not valid ");
     }
     // res.status(200).send({ message: "user password is matched " });
-    res.status(200).send(user);
+    const sanitizedUser = {
+      id: user._id,
+      email: user.email,
+      name: user.name
+    }
+    console.log(user)
+    res.status(200).send(sanitizedUser);
     logger.info("password is valid ");
   }
   } catch (err) {
