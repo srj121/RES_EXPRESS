@@ -9,6 +9,7 @@ const userRouter = require("./routes/userRoutes");
 const authRouter = require("./routes/authRoutes");
 const extra = require("./routes/extraRoutes")
 const elasticEmail = require("./routes/elasticEmailRoutes")
+const verifyToken = require("./routes/varifyTokenRoutes")
 
 const { connectToDatabase } = require("./configurations/db");
 
@@ -19,7 +20,7 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-app.use("/", userRouter , authRouter, extra, elasticEmail);
+app.use("/", userRouter , authRouter, extra, elasticEmail, verifyToken);
 
 
 app.use((err, req, res, next) => {
