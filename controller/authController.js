@@ -11,7 +11,7 @@ const addAuthUser = asyncHandler(async (req, res) => {
   try {
     const { email, name, password } = req.body;
 
-    let encrypted = await bcrypt.hash(password.password, 10)
+    let encrypted = await bcrypt.hash(password1.password, 10)
 
     const newAuthUser = new authUser({
       email: email.email,
@@ -52,14 +52,8 @@ const findAuthUser = asyncHandler(async (req, res) => {
 
         };
 
-        const accessToken = jwt.sign({
-          user: {
-            id: user._id,
-            email: user.email,
-            name: user.name,
-            biography: user.biography || ''
-          }
-        },
+        const accessToken = jwt.sign(
+          { user },
           process.env.ACESS_KEY,
           { expiresIn: '1h' });
         res.json({ key: accessToken });
