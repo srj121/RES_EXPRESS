@@ -1,8 +1,14 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-app.use(cors());
 require("dotenv").config();
+
+// Configure CORS options
+const corsOptions = {
+  origin: ['https://srj121.github.io', 'http://localhost:3000'],
+  optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+app.use(cors(corsOptions));
 
 // Adjust the limit of the request payload
 app.use(express.json({ limit: '10mb' }));
