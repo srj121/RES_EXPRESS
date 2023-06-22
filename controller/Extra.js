@@ -15,6 +15,7 @@ const reconnect = asyncHandler(async (req, res) => {
     
     res.status(200).json({message: 'Successfully reconnected to the database'});
   } catch (err) {
+    console.log(err);
     console.error(err);
     res.status(500).json({message: 'Error reconnecting to the database'});
   }
