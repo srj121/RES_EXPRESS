@@ -19,11 +19,12 @@ app.timeout = 120000; // 2 minutes in milliseconds
 
 
 // app.use((req, res, next) => {
-//   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000' || 'srj121.github.io/RES/');
+//   // res.setHeader('Access-Control-Allow-Origin', 'https://srj121.github.io');
 //   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
 //   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 //   next();
 // });
+
 
 app.use(express.json());
 const userRouter = require("./routes/userRoutes");
