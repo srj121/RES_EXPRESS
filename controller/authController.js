@@ -11,7 +11,7 @@ const addAuthUser = asyncHandler(async (req, res) => {
   try {
     const { email, name, password } = req.body;
 
-    let encrypted = await bcrypt.hash(password1.password, 10)
+    let encrypted = await bcrypt.hash(password.password, 10)
 
     const newAuthUser = new authUser({
       email: email.email,
