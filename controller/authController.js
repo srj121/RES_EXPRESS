@@ -11,7 +11,7 @@ const addAuthUser = asyncHandler(async (req, res) => {
   try {
     const { email, name, password } = req.body;
 
-    let encrypted = await bcrypt.hash(password1.password, 10)
+    let encrypted = await bcrypt.hash(password.password, 10)
 
     const newAuthUser = new authUser({
       email: email.email,
@@ -22,6 +22,7 @@ const addAuthUser = asyncHandler(async (req, res) => {
     logger.info(savedUser);
     res.status(200).json({ message: "Auth User Added!" });
   } catch (err) {
+    console.log(err);
     res.status(500).json({ message: "Error inserting document" });
     logger.error("Error inserting document");
   }
@@ -48,18 +49,15 @@ const findAuthUser = asyncHandler(async (req, res) => {
       } else {
         logger.info("password is valid ");
 
-        const payload = {
-
-        };
-
         const accessToken = jwt.sign(
           { user },
-          process.env.ACESS_KEY,
-          { expiresIn: '1h' });
+          process.env.ACCESS_KEY,
+          { expiresIn: '30m' });
         res.json({ key: accessToken });
       }
     }
   } catch (err) {
+    console.log(err);
     res.status(500).send({ message: "Error getting document" });
     logger.error("Error getting document");
   }
@@ -81,6 +79,7 @@ const allEmails = asyncHandler(async (req, res) => {
       res.status(401).json({ message: "Email is used take another" });
     }
   } catch (err) {
+    console.log(err);
     logger.error(err);
     res.status(500).send({ message: "Error getting document" });
     logger.info("Error getting document");
@@ -102,6 +101,7 @@ const allUserName = asyncHandler(async (req, res) => {
       res.status(401).json({ message: "User name is used take another" });
     }
   } catch (err) {
+    console.log(err);
     logger.error(err);
     res.status(500).send({ message: "Error getting document" });
     logger.info("Error getting document");
@@ -116,6 +116,7 @@ const allSubscribers = asyncHandler(async (req, res) => {
     res.json(count);
 
   } catch (err) {
+    console.log(err);
     console.log(err);
     res.status(500).json({ message: "Error retreving count" });
 

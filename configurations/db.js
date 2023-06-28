@@ -13,6 +13,7 @@ async function connectToDatabase() {
     logger.info("Connected to MongoDB Atlas");
 
   } catch (err) {
+    console.log(err);
     logger.error(err);
     process.exit(1);
   }

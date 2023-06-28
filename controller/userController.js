@@ -11,6 +11,7 @@ const allUsers = asyncHandler(async (req, res) => {
       const users = await userCollection.find().toArray();
       res.json(users);
     } catch (err) {
+    console.log(err);
       logger.error(err);
       logger.info("Error retrieving documents");
     }
@@ -40,6 +41,7 @@ const allUsers = asyncHandler(async (req, res) => {
         res.json(findByname);
       }
     } catch (err) {
+    console.log(err);
       logger.error(err);
       logger.info("Error retrieving document");
       res.status(500).send("Error retrieving document");
@@ -63,6 +65,7 @@ const allUsers = asyncHandler(async (req, res) => {
         res.json(findByage);
       }
     } catch (err) {
+    console.log(err);
       logger.error(err);
       logger.info("Error retrieving document");
       res.status(500).send("Error retrieving document");
@@ -90,6 +93,7 @@ const allUsers = asyncHandler(async (req, res) => {
       }
 
     } catch (err) {
+    console.log(err);
       res.status(400).send("Error retrieving document");
       logger.info("Error retrieving document");
     }
@@ -111,6 +115,7 @@ const allUsers = asyncHandler(async (req, res) => {
         res.status(404).send("Document not found");
       }
     } catch (err) {
+    console.log(err);
       logger.error(err);
       res.status(500).send("Error retrieving document");
     }
@@ -138,6 +143,7 @@ const allUsers = asyncHandler(async (req, res) => {
         res.json(savedUser);
       }
     } catch (err) {
+    console.log(err);
       logger.error(err);
       res.status(500).json({ message: "Error inserting document" });
       logger.info("Error inserting document");
