@@ -16,6 +16,11 @@ const allUsers = asyncHandler(async (req, res) => {
     }
   });
 
+  const scheduler = asyncHandler(async (req, res) => {
+    console.log('hit')
+    res.json({message: "keep awake"})
+  })
+
 
   //____________________________________GET BY NAME_______________________________________
 
@@ -145,5 +150,6 @@ const allUsers = asyncHandler(async (req, res) => {
     getByAge,
     addUser,
     deletByName,
-    deleteById
+    deleteById,
+    scheduler
   }
