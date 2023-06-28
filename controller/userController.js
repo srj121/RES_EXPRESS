@@ -18,7 +18,6 @@ const allUsers = asyncHandler(async (req, res) => {
   });
 
   const scheduler = asyncHandler(async (req, res) => {
-    console.log('hit')
     res.json({message: "keep awake"})
   })
 
