@@ -24,7 +24,7 @@ const verifyToken = (req, res, next) => {
       // Token is valid
       console.log("Token verified");
       // req.user = decoded.user; // Set the decoded user on the request object for further use
-      return res.json({ user: decoded.user, isValid: true });
+      return res.json({ userName: decoded.user.name, isValid: true });
     }
   });
 

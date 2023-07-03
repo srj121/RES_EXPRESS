@@ -27,6 +27,19 @@ const addAuthUser = asyncHandler(async (req, res) => {
     logger.error("Error inserting document");
   }
 });
+//____________________________________ getUserData _______________________________________
+const getUserData = asyncHandler(async(req, res) => {
+
+  try {
+    const name = req.body.name;
+    const user = await authCollection.findOne({name: name})
+    res.json({ message: " got updated user ", user: user})
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Error finding user" });
+  }
+})
+
 
 //____________________________________AUTH LOGINUSER_______________________________________
 
@@ -127,6 +140,7 @@ const allSubscribers = asyncHandler(async (req, res) => {
 
 module.exports = {
   addAuthUser,
+  getUserData,
   findAuthUser,
   allEmails,
   allUserName,
