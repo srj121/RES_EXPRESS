@@ -49,7 +49,6 @@ const findAuthUser = asyncHandler(async (req, res) => {
   const password = user.password;
 
   try {
-
     const user = await authCollection.findOne({ name: name });
     if (user === null) {
       res.status(400).json({ message: "user not found" });
@@ -57,8 +56,8 @@ const findAuthUser = asyncHandler(async (req, res) => {
     else {
       let dbPassword = user.password;
       if (!await bcrypt.compare(password, dbPassword)) {
-        res.status(401).send({ message: "Invalid password " });
-        logger.info("password is not valid ");
+        res.status(401).send({ message: "Invalid password" });
+        logger.info("password is not valid");
       } else {
         logger.info("password is valid ");
 
@@ -66,7 +65,7 @@ const findAuthUser = asyncHandler(async (req, res) => {
           { user },
           process.env.ACCESS_KEY,
           { expiresIn: '30m' });
-        res.json({ key: accessToken });
+        res.json({ key: accessToken});
       }
     }
   } catch (err) {
