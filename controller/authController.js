@@ -9,20 +9,19 @@ const authCollection = userclient.db("RES").collection("auth");
 //____________________________________POST AUTH ADDUSER_______________________________________
 const addAuthUser = asyncHandler(async (req, res) => {
   try {
-    const { email, name, password } = req.body;
+    const { email, userName, password } = req.body;
 
     let encrypted = await bcrypt.hash(password.password, 10)
 
     const newAuthUser = new authUser({
       email: email.email,
-      name: name.name,
+      userName: userName.userName,
       password: encrypted
     });
     const savedUser = await authCollection.insertOne(newAuthUser);
     logger.info(savedUser);
     res.status(200).json({ message: "Auth User Added!" });
   } catch (err) {
-    console.log(err);
     res.status(500).json({ message: "Error inserting document" });
     logger.error("Error inserting document");
   }
@@ -31,11 +30,10 @@ const addAuthUser = asyncHandler(async (req, res) => {
 const getUserData = asyncHandler(async(req, res) => {
 
   try {
-    const name = req.body.name;
-    const user = await authCollection.findOne({name: name})
+    const userName = req.body.userName;
+    const user = await authCollection.findOne({userName: userName})
     res.json({ message: " got updated user ", user: user})
   } catch (err) {
-    console.log(err);
     res.status(500).json({ message: "Error finding user" });
   }
 })
@@ -45,11 +43,10 @@ const getUserData = asyncHandler(async(req, res) => {
 
 const findAuthUser = asyncHandler(async (req, res) => {
   const user = req.body;
-  const name = user.userName;
+  const userName = user.userName;
   const password = user.password;
-
   try {
-    const user = await authCollection.findOne({ name: name });
+    const user = await authCollection.findOne({ userName: userName });
     if (user === null) {
       res.status(400).json({ message: "user not found" });
     }
@@ -69,7 +66,6 @@ const findAuthUser = asyncHandler(async (req, res) => {
       }
     }
   } catch (err) {
-    console.log(err);
     res.status(500).send({ message: "Error getting document" });
     logger.error("Error getting document");
   }
@@ -91,7 +87,6 @@ const allEmails = asyncHandler(async (req, res) => {
       res.status(401).json({ message: "Email is used take another" });
     }
   } catch (err) {
-    console.log(err);
     logger.error(err);
     res.status(500).send({ message: "Error getting document" });
     logger.info("Error getting document");
@@ -100,20 +95,19 @@ const allEmails = asyncHandler(async (req, res) => {
 //____________________________________GET USERNAME_______________________________________
 
 const allUserName = asyncHandler(async (req, res) => {
-  const { name } = req.body;
+  const { userName } = req.body;
 
   try {
-    const user = await authCollection.findOne({ name: name });
+    const user = await authCollection.findOne({ userName: userName });
 
     if (user == null) {
       res.status(200).json({ message: "user name is not found" });
       logger.info("UserName is Available");
     }
-    else if (user.name === name) {
+    else if (user.userName === userName) {
       res.status(401).json({ message: "User name is used take another" });
     }
   } catch (err) {
-    console.log(err);
     logger.error(err);
     res.status(500).send({ message: "Error getting document" });
     logger.info("Error getting document");
@@ -124,12 +118,9 @@ const allUserName = asyncHandler(async (req, res) => {
 const allSubscribers = asyncHandler(async (req, res) => {
   try {
     const count = await authCollection.countDocuments();
-    console.log("count of all subsCribers = " + count);
     res.json(count);
 
   } catch (err) {
-    console.log(err);
-    console.log(err);
     res.status(500).json({ message: "Error retreving count" });
 
   }

@@ -20,7 +20,7 @@ const sendEmail = asyncHandler(async (req, res) => {
 
     //   const randomNumber = generateRandomNumber(); // Assuming you have a function to generate a random number
 
-const BODY_TEXT = `Dear ${req.body.userName.name},
+const BODY_TEXT = `Dear ${req.body.userName.userName},
 
 Thank you for choosing our platform for your sign-up process. We have received your request for an OTP (One-Time Password) to proceed with the verification. Please find your OTP below:
 
@@ -40,8 +40,6 @@ RES GLOBAL
 
 
       const email = req.body.emaiTo.email; // Using the setter method
-      console.log(req.body.emaiTo.email)
-    console.log('email = ' + email); // Using the getter method
 
     let data = "apikey=" + encodeURIComponent(APIKEY);
     data += "&from=" + encodeURIComponent("surajbade39.sb@gmail.com");
@@ -51,12 +49,10 @@ RES GLOBAL
     data += "&to=" + encodeURIComponent(email);
     data += "&isTransactional=" + encodeURIComponent("false");
 
-    console.log(data);
 
     axios
       .post("https://api.elasticemail.com/v2/email/send", data)
       .then((response) => {
-        console.log(response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -80,9 +76,7 @@ function generateRandomNumber() {
 
 const OtpGen = asyncHandler(async (req, res) => {
   try {
-    console.log("otp = " + randomNumber);
     const userOtp = Number(req.query.otp);
-    console.log("otp from react = " + userOtp);
     if(userOtp !== randomNumber) {
     res.status(401).send("otp is incorrect");
     }
