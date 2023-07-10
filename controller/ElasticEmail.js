@@ -13,12 +13,6 @@ const sendEmail = asyncHandler(async (req, res) => {
     randomNumber = generateRandomNumber();
     console.log("randomNumber = " + randomNumber);
 
-    // let BODY_TEXT =
-    //   "you have request for an OTP for signing in. \nHere is your OTP \n\n" +
-    //   randomNumber +
-    //   "\n\n Copy it and get access";
-
-    //   const randomNumber = generateRandomNumber(); // Assuming you have a function to generate a random number
 
 const BODY_TEXT = `Dear ${req.body.userName.userName},
 
@@ -42,8 +36,8 @@ RES GLOBAL
       const email = req.body.emaiTo.email; // Using the setter method
 
     let data = "apikey=" + encodeURIComponent(APIKEY);
-    data += "&from=" + encodeURIComponent("surajbade39.sb@gmail.com");
-    data += "&fromName=" + encodeURIComponent("suraj Bade");
+    data += "&from=" + encodeURIComponent("official.resglobal.in");
+    data += "&fromName=" + encodeURIComponent("RES Global");
     data += "&subject=" + encodeURIComponent(SUBJECT);
     data += "&bodyText=" + encodeURIComponent(BODY_TEXT);
     data += "&to=" + encodeURIComponent(email);
@@ -53,6 +47,7 @@ RES GLOBAL
     axios
       .post("https://api.elasticemail.com/v2/email/send", data)
       .then((response) => {
+        console.log(response);
       })
       .catch((error) => {
         console.error(error);

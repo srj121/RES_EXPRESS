@@ -9,23 +9,34 @@ const authCollection = userclient.db("RES").collection("auth");
 //____________________________________POST AUTH ADDUSER_______________________________________
 const addAuthUser = asyncHandler(async (req, res) => {
   try {
-    const { email, userName, password } = req.body;
+    const { ObjectId } = require("mongodb");
+    
+    const {  password, id } = req.body;
+  
+    const objectId = new ObjectId(String(id));
 
-    let encrypted = await bcrypt.hash(password.password, 10)
+    let encrypted = await bcrypt.hash(password, 10);
 
-    const newAuthUser = new authUser({
-      email: email.email,
-      userName: userName.userName,
-      password: encrypted
-    });
-    const savedUser = await authCollection.insertOne(newAuthUser);
-    logger.info(savedUser);
-    res.status(200).json({ message: "Auth User Added!" });
+    const filter = { _id: objectId }; // Filter by ID
+
+    const update = {
+      $set: { password: encrypted },
+    };
+
+    const updatedUser = await authCollection.updateOne(filter, update);
+
+    if (updatedUser.modifiedCount === 1) {
+      res.status(200).json({ message: "Auth User Updated!" });
+    } else {
+      res.status(400).json({ message: "Document not found or update failed." });
+    }
   } catch (err) {
-    res.status(500).json({ message: "Error inserting document" });
-    logger.error("Error inserting document");
+    res.status(500).json({ message: "Error updating document" });
+    logger.error("Error updating document");
   }
 });
+
+
 //____________________________________ getUserData _______________________________________
 const getUserData = asyncHandler(async(req, res) => {
 
