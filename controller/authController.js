@@ -72,7 +72,7 @@ const findAuthUser = asyncHandler(async (req, res) => {
         const accessToken = jwt.sign(
           { user },
           process.env.ACCESS_KEY,
-          { expiresIn: '30m' });
+          { expiresIn: '1d' });
         res.json({ key: accessToken});
       }
     }

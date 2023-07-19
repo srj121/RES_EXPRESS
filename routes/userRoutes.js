@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { allUsers, getByName, deleteById, deletByName, getByAge, addUser, scheduler } = require('../controller/userController')
-
+const verifyToken = require('../middleWare/verifyToken')
 
 router.route('/').get(allUsers)
 router.route('/byname').get(getByName)
